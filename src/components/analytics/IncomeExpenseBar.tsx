@@ -16,7 +16,10 @@ export default function IncomeExpenseBar() {
           <XAxis dataKey="month" tick={{ fontSize: 11, fill: 'var(--text-2)' }} axisLine={false} tickLine={false} />
           <YAxis tick={{ fontSize: 10, fill: 'var(--text-2)' }} axisLine={false} tickLine={false} tickFormatter={v => `${(v/1000).toFixed(0)}к`} />
           <Tooltip
-            formatter={(v: number, name: string) => [formatCurrency(v, settings.currency), name === 'income' ? 'Доходы' : 'Расходы']}
+            formatter={(value, name) => [
+  formatCurrency(Number(value ?? 0), settings.currency),
+  name === 'income' ? 'Доходы' : 'Расходы',
+]}
             contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, fontSize: 12 }}
             labelStyle={{ color: 'var(--text)', fontWeight: 600 }}
           />
