@@ -27,7 +27,10 @@ export default function ExpensePieChart({ period }: Props) {
             {stats.map(s => <Cell key={s.categoryId} fill={s.color} />)}
           </Pie>
           <Tooltip
-            formatter={(v: number) => [formatCurrency(v, settings.currency), '']}
+            formatter={(value) => [
+  formatCurrency(Number(value ?? 0), settings.currency),
+  '',
+]}
             contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, fontSize: 12 }}
           />
           <Legend
