@@ -8,7 +8,11 @@ interface CategoryIconProps {
 }
 
 export default function CategoryIcon({ icon, color, size = 20, bg = true }: CategoryIconProps) {
-  const LucideIcon = (Icons as Record<string, Icons.LucideIcon>)[icon] ?? Icons.Circle;
+  import * as Lucide from 'lucide-react';
+
+const LucideIcon = icon in Lucide 
+  ? Lucide[icon as keyof typeof Lucide] 
+  : Lucide.Circle;
   const pad = Math.round(size * 0.55);
   return (
     <div style={{
