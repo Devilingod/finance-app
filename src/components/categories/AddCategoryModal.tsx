@@ -77,7 +77,10 @@ export default function AddCategoryModal({ open, onClose, editCategory }: Props)
           <label style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-2)', letterSpacing: '0.04em', display: 'block', marginBottom: 8 }}>ИКОНКА</label>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)', gap: 6 }}>
             {ICON_OPTIONS.map(ic => {
-              const Ic = (Icons as Record<string, Icons.LucideIcon>)[ic] ?? Icons.Circle;
+              import * as Icons from 'lucide-react';
+              const Ic = ic in Icons 
+  ? Icons[ic as keyof typeof Icons] 
+  : Icons.Circle;
               return (
                 <button key={ic} onClick={() => setIcon(ic)} style={{
                   padding: 8, borderRadius: 8, border: icon === ic ? `2px solid ${color}` : '2px solid transparent',
