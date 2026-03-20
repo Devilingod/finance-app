@@ -1,8 +1,7 @@
 import {
   startOfDay, startOfWeek, startOfMonth, startOfYear,
   endOfDay, endOfWeek, endOfMonth, endOfYear,
-  isWithinInterval, eachDayOfInterval, eachMonthOfInterval,
-  format, subMonths, subDays,
+  isWithinInterval, eachDayOfInterval, format, subMonths, subDays,
 } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import type { Transaction, Category, Period, BalanceSummary, CategoryStat, MonthlyData, DailyBalance } from '../types';
