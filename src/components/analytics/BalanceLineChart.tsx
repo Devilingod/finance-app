@@ -16,7 +16,10 @@ export default function BalanceLineChart() {
           <XAxis dataKey="date" tick={{ fontSize: 10, fill: 'var(--text-2)' }} axisLine={false} tickLine={false} interval={6} />
           <YAxis tick={{ fontSize: 10, fill: 'var(--text-2)' }} axisLine={false} tickLine={false} tickFormatter={v => `${(v/1000).toFixed(0)}к`} />
           <Tooltip
-            formatter={(v: number) => [formatCurrency(v, settings.currency), 'Баланс']}
+            formatter={(v) => [
+  formatCurrency(v as number, settings.currency),
+  'Баланс'
+]}
             contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, fontSize: 12 }}
             labelStyle={{ color: 'var(--text)', fontWeight: 600 }}
           />
